@@ -1,0 +1,15 @@
+{
+    "label" : "lock",
+    "action" : "/home/ylanan/.config/swaylock/lock.sh",
+    "text" : "LOCK"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "SHUTDOWN"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "REBOOT"
+}

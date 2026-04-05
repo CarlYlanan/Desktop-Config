@@ -1,0 +1,107 @@
+@theme "/dev/null"
+
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "春";
+    drun-display-format: "{name}";
+    font: "Fira Sans Semibold 11";
+}
+
+* {
+    /* Pulled directly from your Waybar CSS */
+    bg-col: #0f1117f2;      /* Waybar Dark Navy */
+    miku-cyan: #00BEBE;     /* Waybar Miku Cyan */
+    teto-pink: #FF4D6D;     /* Waybar Teto Pink */
+    text-col: #ffffff;
+
+    /* Consistency adjustments */
+    unselected-item: #1a1d26cc; /* Slightly lighter navy for blocks */
+    selected-col: #00BEBE22;    /* Miku Cyan glow for selection */
+}
+
+window {
+    width: 986px;
+    height: 500px;
+    border: 2px;
+    border-color: @miku-cyan; /* Changed to Cyan to match Waybar module borders */
+    background-color: @bg-col;
+    border-radius: 15px;
+}
+
+mainbox {
+    orientation: horizontal;
+    background-color: transparent;
+    children: [ "imagebox", "listbox" ];
+}
+
+imagebox {
+    width: 340px;
+    background-color: transparent;
+    background-image: url("~/Pictures/things/sakurabiyori.jpg", height);
+    border-radius: 13px 0px 0px 13px;
+}
+
+listbox {
+    orientation: vertical;
+    children: [ "inputbar", "listview" ];
+    background-color: transparent;
+    padding: 25px;
+}
+
+inputbar {
+    padding: 10px;
+    margin: 0px 0px 15px 0px;
+    background-color: #ffffff05;
+    border-radius: 8px;
+    border: 1px;
+    border-color: @teto-pink; /* Pink search border to balance the Cyan window */
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    text-color: @miku-cyan;
+    background-color: transparent;
+    margin: 0px 5px 0px 0px;
+}
+
+entry {
+    text-color: @text-col;
+    background-color: transparent;
+    placeholder: "I want to be a bear and hibernate...";
+    placeholder-color: #ffffff33;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+    background-color: transparent;
+    fixed-height: true;
+    spacing: 8px;
+}
+
+element {
+    padding: 12px;
+    background-color: @unselected-item;
+    border-radius: 8px;
+    text-color: @text-col;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @miku-cyan;
+    border: 0px 0px 0px 4px;
+    border-color: @teto-pink; /* Pink accent bar on the left of selection */
+}
+
+element-text {
+    text-color: inherit;
+    vertical-align: 0.5;
+    background-color: transparent;
+}
+
+element-icon {
+    size: 28px;
+    background-color: transparent;
+    margin: 0px 10px 0px 0px;
+}

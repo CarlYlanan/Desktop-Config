@@ -1,0 +1,41 @@
+window {
+	background-color: rgba(15, 17, 23, 0.8); /* Ado Navy Glass */
+}
+
+grid {
+	/* Default centering */
+	margin: 0px;
+}
+
+button {
+	color: #00bebe;             /* Miku Cyan */
+	background-color: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(0, 190, 190, 0.2);
+	border-radius: 4px;
+	margin: 8px;                /* Gap between buttons */
+
+	/* RESET SIZES: This makes the button wrap the text */
+	min-width: 0;
+	min-height: 0;
+
+	/* PADDING: This is the actual 'size' of your button now */
+	padding: 10px 40px;         /* 10px top/bottom, 40px left/right */
+
+	/* ORIGINAL TEXT STYLE */
+	font-family: "Lexend", sans-serif;
+	font-size: 24px;            /* Back to your original size */
+	font-weight: 300;           /* Fixed: No 'px' suffix */
+	letter-spacing: 8px;        /* Keeping the aesthetic spacing */
+
+	background-image: none;
+	text-shadow: 0 0 8px rgba(0, 190, 190, 0.6);
+	transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+	background-color: rgba(255, 77, 109, 0.1);
+	border: 1px solid #ff4d6d;  /* Teto Pink */
+	color: #ff4d6d;
+	text-shadow: 0 0 12px rgba(255, 77, 109, 0.8);
+	box-shadow: inset 0 0 10px rgba(255, 77, 109, 0.1);
+}
