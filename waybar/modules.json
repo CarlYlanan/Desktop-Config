@@ -1,0 +1,205 @@
+{
+  // Workspaces (Japanese Kanji)
+  "niri/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "default": "〇"
+    }
+  },
+
+  // Media Player (Spicetify)
+  "mpris": {
+    "format": "<b><span color='#FF4D6D'>🌹</span> {artist} - {title}</b>",
+    "format-paused": "<b><span color='#6272A4'>󰏤</span> {artist} - {title}</b>",
+    "max-length": 40,
+    "on-click": "~/.config/waybar/scripts/media-menu.sh",
+    "ignored-players": ["zen", "zen-alpha", "firefox", "chromium", "librewolf"],
+    "player-icons": {
+      "default": "▶",
+      "spotify": ""
+    }
+  },
+
+  // Taskbar
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": ["Alacritty", "kitty", "ghostty"],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal",
+      "Zen Browser": "Zen",
+      "Brave Web Browser": "Brave"
+    }
+  },
+
+  // niri Window
+  "niri/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Brave": "$1",
+      "(.*) - Chromium": "$1",
+      "(.*) - Brave Search": "$1",
+      "(.*) - Outlook": "$1",
+      "(.*) Microsoft Teams": "$1"
+    },
+    "separate-outputs": true
+  },
+
+  // CPU Usage
+  "cpu": {
+    "interval": 2,
+    "format": "    {usage}%",
+    "states": {
+      "high": 60
+    }
+  },
+
+  // Temperature
+  "temperature": {
+    "interval": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "critical-threshold": 70,
+    "format": "{icon}    {temperatureC}°C",
+    "format-icons": ["", "", ""]
+  },
+
+  // AMD GPU Usage
+  "custom/gpu": {
+    "interval": 2,
+    "exec": "cat /sys/class/hwmon/hwmon*/device/gpu_busy_percent",
+    "format": "󰾲    {}%",
+    "tooltip": false
+  },
+
+  // Empty/Tools/Updates
+  "custom/empty": { "format": "" },
+  "custom/tools": {
+    "format": "",
+    "tooltip-format": "Tools"
+  },
+  "custom/updates": {
+    "format": "{} {icon}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱍷",
+      "updated": "󰂪"
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+  },
+
+  // rofi Application Launcher
+  "custom/appmenu": {
+    "format": "    ",
+    "on-click": "sleep 0.2;rofi -show drun -replace",
+    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
+  },
+
+  "custom/appmenuicon": {
+    "format": "",
+    "on-click": "sleep 0.2;rofi -show drun -replace",
+    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
+  },
+
+  // Power Menu
+  "custom/exit": {
+    "format": " 󰐥 ",
+    "on-click": "~/.config/waybar/scripts/power-menu.sh",
+    "tooltip-format": "Power Menu"
+  },
+
+  // Keyboard State
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+
+  // System tray
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  // Clock (Japanese Date Format)
+  "clock": {
+    "interval": 60,
+    "format": "{:%m月%d日 %H:%M}",
+    "max-length": 25,
+    "on-click": "ags -t calendar",
+    "tooltip-format": "<big>{:%Y年 %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "niri/language": {
+    "format": "/ K {short}"
+  },
+
+  // Battery
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}    {capacity}%",
+    "format-charging": "    {capacity}%",
+    "format-plugged": "    {capacity}%",
+    "format-alt": "{icon}    {time}",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    "format": "{icon}    {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "on-click": "pavucontrol"
+  },
+
+  // Bluetooth
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+
+  // User
+  "user": {
+    "format": "{user}",
+    "interval": 60,
+    "icon": false
+  },
+
+  // Backlight
+  "backlight": {
+    "format": "{icon}    {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    "scroll-step": 1
+  }
+}
