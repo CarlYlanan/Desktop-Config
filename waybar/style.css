@@ -1,0 +1,145 @@
+/* Vocaloid Nightcore Theme - Japanese Cyberpunk Edition */
+
+* {
+    font-family: "Fira Sans Semibold", "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Floating Islands */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: rgba(15, 17, 23, 0.85);
+    border: 2px solid #00BEBE; /* Miku Cyan */
+    border-radius: 12px;
+    margin: 2px 0;
+    padding: 0 12px;
+    box-shadow: 0 0 10px rgba(0, 190, 190, 0.4);
+}
+
+/* --- MIKU WALLPAPER PICKER ICON --- */
+#custom-miku {
+background-image: url("/home/ylanan/Pictures/things/b2a465175968128.png");
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+min-width: 32px; /* Adjusted for your 42px height bar */
+min-height: 32px;
+margin: 4px 10px;
+transition: all 0.3s ease-in-out;
+}
+
+#custom-miku:hover {
+box-shadow: 0 0 12px rgba(0, 190, 190, 0.8);
+background-color: rgba(0, 190, 190, 0.1);
+border-radius: 8px;
+}
+
+/* --- MEDIA PLAYER --- */
+#mpris {
+background-color: rgba(26, 15, 17, 0.9);
+color: #ECEFF4;
+padding: 0 15px;
+border-radius: 12px;
+margin: 2px 5px;
+border: 2px solid #FF4D6D; /* Ado Rose */
+box-shadow: 0 0 10px rgba(255, 77, 109, 0.3);
+}
+
+#mpris.paused {
+border-color: #6272A4;
+color: #6272A4;
+}
+
+/* --- STATS SPACING & STABILITY --- */
+#cpu, #temperature, #custom-gpu, #pulseaudio, #backlight, #battery, #tray {
+color: #00BEBE;
+padding: 0 10px;
+}
+
+/* --- KANJI WORKSPACES --- */
+#workspaces button {
+color: #FF4D6D; /* Teto Pink */
+padding: 0 10px;
+font-size: 18px;
+transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+color: #00BEBE; /* Miku Cyan */
+text-shadow: 0 0 12px #00BEBE;
+font-weight: 800;
+border-bottom: 2px solid #00BEBE;
+}
+
+#workspaces button:hover {
+background: rgba(0, 190, 190, 0.1);
+border-radius: 8px;
+color: #FF4D6D;
+}
+
+/* --- TASKBAR --- */
+#taskbar button {
+padding: 0 10px;
+margin: 0;
+}
+
+#taskbar button.active {
+background: rgba(255, 77, 109, 0.2);
+border-bottom: 2px solid #FF4D6D;
+}
+
+/* --- ALERT STATES --- */
+#cpu.high,
+#temperature.critical {
+color: #FF4D6D;
+text-shadow: 0 0 8px #FF4D6D;
+}
+
+/* --- CLOCK & POWER --- */
+#clock {
+color: #ffffff;
+font-weight: 800;
+padding: 0 12px;
+border-left: 2px solid rgba(0, 190, 190, 0.3);
+font-size: 14px;
+}
+
+#custom-exit {
+color: #FF4D6D;
+font-size: 16px;
+padding: 0 8px;
+}
+
+#custom-exit:hover {
+color: #ff0000;
+text-shadow: 0 0 10px #ff0000;
+}
+
+/* --- TOOLTIPS --- */
+tooltip {
+    border-radius: 10px;
+    background-color: #0f1117;
+    border: 1px solid #00BEBE;
+}
+
+tooltip label {
+    color: #e0e0e0;
+    padding: 4px 8px;
+}
+
+/* --- BATTERY ANIMATION --- */
+#battery.critical:not(.charging) {
+background-color: #FF4D6D;
+color: #ffffff;
+animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to { background-color: transparent; color: #FF4D6D; }
+}
