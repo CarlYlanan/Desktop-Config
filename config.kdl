@@ -22,11 +22,11 @@ input {
         natural-scroll
         accel-profile "flat"   // disables touchpad pointer acceleration
     }
-    
+
     tablet {
-	map-to-output "Microstep G274QPX CC2HC75400354"
-//	map-to-output "GIGA-BYTE TECHNOLOGY CO., LTD. GIGABYTE G24F 21480B001226"
-	}
+        map-to-output "Microstep G274QPX CC2HC75400354"
+        //	map-to-output "GIGA-BYTE TECHNOLOGY CO., LTD. GIGABYTE G24F 21480B001226"
+    }
 
 
     focus-follows-mouse
@@ -48,7 +48,7 @@ output "Microstep G274QPX CC2HC75400354" {
     mode "2560x1440@240.002"
     scale 1
     position x=0 y=0
-//    transform "270"
+    //    transform "270"
 }
 
 output "GIGA-BYTE TECHNOLOGY CO., LTD. GIGABYTE G24F 21480B001226" {
@@ -77,7 +77,7 @@ binds {
     MOD+SPACE hotkey-overlay-title="Open App Launcher: rofi" { spawn "sh" "-c" "TERMINAL=alacritty rofi -show drun"; }
     MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen-browser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
-    
+
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Files" { spawn-sh "nautilus"; }
 
@@ -204,20 +204,21 @@ binds {
 // ────────────── Startup Applications ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
-    spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
-    spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    spawn-sh-at-startup "~/.config/waybar/scripts/wallpaper-boot.sh"
-    spawn-sh-at-startup "mako"
-    spawn-sh-at-startup "waybar" // Launch waybar
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
+spawn-sh-at-startup "awww-daemon" // Wallpaper daemon
+spawn-sh-at-startup "~/.config/waybar/scripts/wallpaper-boot.sh"
+spawn-sh-at-startup "mako"
+spawn-sh-at-startup "waybar" // Launch waybar
+spawn-sh-at-startup "~/.config/waybar/scripts/wallpaper-rotator.sh"
 
-    prefer-no-csd // Disable program decorations
-    screenshot-path null // Disable screenshot saving
+prefer-no-csd // Disable program decorations
+screenshot-path null // Disable screenshot saving
 
 // ────────────── Layout Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
 layout {
-    gaps 16
+    gaps 5
     center-focused-column "never"
 
     preset-column-widths {
@@ -238,10 +239,10 @@ layout {
         softness 30
         spread 3
         offset x=0 y=0 // Set to 0 to make it glow evenly around the window
-        
+
         // Match the Waybar island glow: a semi-transparent Cyan
         // #00BEBE66 (The '66' at the end adds 40% transparency)
-        color "#00BEBE66" 
+        color "#00BEBE66"
     }
 
     struts {}
@@ -250,51 +251,51 @@ layout {
 
 // ────────────── Animation Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
-    animations {
-        workspace-switch {
-            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-        }
-        window-open {
-            duration-ms 200
-            curve "ease-out-quad"
-        }
-        window-close {
-            duration-ms 200
-            curve "ease-out-cubic"
-        }
-        horizontal-view-movement {
-            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
-        }
-        window-movement {
-            spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-        }
-        window-resize {
-            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-        }
-        config-notification-open-close {
-            spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
-        }
-        screenshot-ui-open {
-            duration-ms 300
-            curve "ease-out-quad"
-        }
-        overview-open-close {
-            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
-        }
+animations {
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
+    window-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    window-close {
+        duration-ms 200
+        curve "ease-out-cubic"
+    }
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+    }
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    window-resize {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
+    }
+    screenshot-ui-open {
+        duration-ms 300
+        curve "ease-out-quad"
+    }
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+    }
+}
 
 // ────────────── Window Rules ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
-    window-rule {
-        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-        open-floating true // Always float Firefox PiP windows
-    }
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true // Always float Firefox PiP windows
+}
 
-    window-rule {
-        geometry-corner-radius 20 // Set every window radius to 20
-        clip-to-geometry true
-    }
+window-rule {
+    geometry-corner-radius 20 // Set every window radius to 20
+    clip-to-geometry true
+}
 
 
 
@@ -303,14 +304,14 @@ layout {
 // Unified System 01 HUD (Python/OpenGL Version)
 window-rule {
     match title="System 01 HUD"
-    
+
     open-floating true
     open-on-output "DP-1"
-    
+
     // Forces full 1080p size
     default-column-width { fixed 1920; }
     default-window-height { fixed 1080; }
-    
+
     // Aesthetic: No ring or background behind the glass
     focus-ring { off; }
     draw-border-with-background false
@@ -328,15 +329,20 @@ window-rule {
 // ────────────── Environment Variables ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
-    environment {
-        DISPLAY ":1"
-        ELECTRON_OZONE_PLATFORM_HINT "auto"
-        QT_QPA_PLATFORM "wayland"
-        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-        XDG_SESSION_TYPE "wayland"
-        XDG_CURRENT_DESKTOP "niri"
-    }
+environment {
+    DISPLAY ":1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+}
 
-    hotkey-overlay {
-        skip-at-startup
-    }
+hotkey-overlay {
+    skip-at-startup
+}
+
+cursor {
+    xcursor-theme "miku-cursor-linux"
+    xcursor-size 24
+}
