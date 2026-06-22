@@ -1,0 +1,45 @@
+{
+    "height": 42,
+    "layer": "top",
+    "position": "top",
+    "margin-top": 2,
+    "margin-left": 12,
+    "margin-right": 12,
+    "spacing": 0,
+
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    "modules-left": [
+        "niri/workspaces",
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "mpris",
+        "cpu",
+        "temperature",
+        "custom/gpu",
+        "tray",
+        "pulseaudio",
+        "custom/flip",
+        "custom/miku",
+        "custom/exit"
+    ],
+
+    // Define the module logic here
+    "custom/miku": {
+        "format": "  ",
+        "on-click": "~/.config/waybar/scripts/wallpaper-picker.sh",
+        "tooltip": false
+    },
+    "custom/flip": {
+        "format": "  ",
+        "on-click": "~/.config/waybar/scripts/rotate.sh",
+        "tooltip": false
+    }
+}
